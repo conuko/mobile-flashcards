@@ -1,4 +1,3 @@
-import { ActionSheetIOS } from "react-native";
 import {
   SHOW_DECKS,
   SHOW_DECK,
