@@ -18,16 +18,17 @@ https://knowledge.udacity.com/questions/480149
 https://www.javatpoint.com/react-native-asyncstorage
 https://react-native-async-storage.github.io/async-storage/docs/api
 https://knowledge.udacity.com/questions/135724
+https://knowledge.udacity.com/questions/367646
 */
 export const getDecks = async () => {
   const data = await AsyncStorage.getItem(CARD_STORAGE_KEY);
   return JSON.parse(data);
 };
 
-// take in a single id argument and return the deck associated with that id from all decks:
-export const getDeck = async (id) => {
+// take in a single title argument and return the deck associated with that title from all decks:
+export const getDeck = async (deck) => {
   getDecks().then((decks) => {
-    return decks[id];
+    return decks[deck];
   });
 };
 
@@ -59,12 +60,13 @@ export const addCardToDeck = async (title, newCard) => {
 // to delete a deck:
 /* I created the following async function with the help of the following knowledge:
 https://knowledge.udacity.com/questions/192137
+https://knowledge.udacity.com/questions/367646
 */
-export const removeDeck = async (id) => {
+export const removeDeck = async (deck) => {
   const results = await AsyncStorage.getItem(CARD_STORAGE_KEY);
   if (results) {
     const data = JSON.parse(results);
-    delete data[id];
+    delete data[deck];
 
     await AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(data));
     return data;

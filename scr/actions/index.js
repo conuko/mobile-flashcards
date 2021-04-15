@@ -4,28 +4,33 @@ export const ADD_DECK = "ADD_DECK";
 export const ADD_CARD = "ADD_CARD";
 export const DELETE_DECK = "DELETE_DECK";
 
-function showDecks(decks) {
+/*
+I created the action creator functions with the help from the following knowledge:
+https://knowledge.udacity.com/questions/192137
+https://knowledge.udacity.com/questions/367646
+*/
+export function showDecks(decks) {
   return {
     type: SHOW_DECKS,
     decks,
   };
 }
 
-function showDeck(id) {
+export function showDeck(deck) {
   return {
     type: SHOW_DECK,
-    id,
+    deck,
   };
 }
 
-function addDeck(title) {
+export function addDeck(deck) {
   return {
     type: ADD_DECK,
-    title,
+    deck,
   };
 }
 
-function addCard(title, newCard) {
+export function addCard(title, newCard) {
   return {
     type: ADD_CARD,
     title,
@@ -33,9 +38,9 @@ function addCard(title, newCard) {
   };
 }
 
-function deleteDeck(id) {
+export function deleteDeck(deck) {
   return {
     type: DELETE_DECK,
-    id,
+    deck,
   };
 }
