@@ -11,6 +11,7 @@ information inside of our AsyncStore (like we did in the FitnessApp Project):
 */
 const CARD_STORAGE_KEY = "MobileFlashcards:cards";
 
+// to get all the decks:
 /*
 I created the following async functions with the help of the following knowledge/resources:
 https://knowledge.udacity.com/questions/480149
@@ -30,6 +31,7 @@ export const getDeck = async (id) => {
   });
 };
 
+// to create and save a new deck:
 export const saveDeck = async (title) => {
   const savedDeck = JSON.stringify({
     [title]: { title: title, questions: [] },
@@ -38,6 +40,7 @@ export const saveDeck = async (title) => {
   return JSON.parse(savedDeck);
 };
 
+// to create and save a new card with a question and an answer to the current deck:
 /* I created the following async function with the help of the following knowledge:
 https://knowledge.udacity.com/questions/135724
 */
@@ -51,4 +54,20 @@ export const addCardToDeck = async (title, newCard) => {
     CARD_STORAGE_KEY,
     JSON.stringify(newDeck)
   );
+};
+
+// to delete a deck:
+/* I created the following async function with the help of the following knowledge:
+https://knowledge.udacity.com/questions/192137
+*/
+export const removeDeck = async (id) => {
+  const results = await AsyncStorage.getItem(CARD_STORAGE_KEY);
+  if (results) {
+    const data = JSON.parse(results);
+    delete data[id];
+
+    await AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(data));
+    return data;
+  }
+  return {};
 };
