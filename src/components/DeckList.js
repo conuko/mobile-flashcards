@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { getDecks } from "../utils/api";
 import { showDecks } from "../actions";
 import DeckListCard from "./DeckListCard";
-import { handleInitialData } from "../actions";
+// import { handleInitialData } from "../actions";
 
 /*
 I created DeckList with the help of the following knowledge:
@@ -18,7 +18,7 @@ https://knowledge.udacity.com/questions/247636
 class DeckList extends Component {
   // get decks from api and dispatch the data to the store:
   componentDidMount() {
-    this.props.handleInitialData();
+    //this.props.handleInitialData();
     const { dispatch } = this.props;
     getDecks().then((decks) => dispatch(showDecks(decks)));
   }
@@ -28,7 +28,7 @@ class DeckList extends Component {
     return (
       <ScrollView>
         {allDecks.map((deck) => (
-          <DeckListCard key={deck} id={deck.title} deck={deck} />
+          <DeckListCard key={deck} deck={deck} />
         ))}
       </ScrollView>
     );
@@ -42,4 +42,4 @@ function mapStateToProps(decks) {
   };
 }
 
-export default connect(mapStateToProps, { handleInitialData })(DeckList);
+export default connect(mapStateToProps /* { handleInitialData } */)(DeckList);
