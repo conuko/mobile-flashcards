@@ -4,8 +4,7 @@ import { View, Text, SubmitBtn } from "react-native";
 import { removeDeck } from "../utils/api"; */
 
 class IndividualDeck extends Component {
-
-    /* TODO:
+  /* TODO:
     --> method to Navigate to AddCard
     --> method to navigate to Quiz
     --> method to delete the deck
@@ -14,8 +13,10 @@ class IndividualDeck extends Component {
     return (
       <View>
         <View>
+          {/*
           <Text>{deck.title}</Text>
           <Text>{deck.questions.length}</Text>
+          */}
         </View>
         <View>
           <SubmitBtn>Add Card</SubmitBtn>

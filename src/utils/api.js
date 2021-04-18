@@ -1,12 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 /*
-I set this key, which is basically just where we're going to persist the
-information inside of our AsyncStore (like we did in the FitnessApp Project):
-*/
-const CARD_STORAGE_KEY = "MobileFlashcards:cards";
-
-/*
 I created the following async functions with the help of the following knowledge/resources:
 --> how to set initialDecks:
 https://knowledge.udacity.com/questions/280298
@@ -19,7 +13,7 @@ https://knowledge.udacity.com/questions/367646
 */
 
 // initial Data:
-let initDecks = {
+export const decks = {
   Deck1: {
     title: "Deck1",
     questions: [
@@ -45,6 +39,12 @@ let initDecks = {
   },
 };
 
+/*
+I set this key, which is basically just where we're going to persist the
+information inside of our AsyncStore (like we did in the FitnessApp Project):
+*/
+const CARD_STORAGE_KEY = "MobileFlashcards:decks";
+
 // to get all the decks:
 /* export const getDecks = async () => {
   const data = await AsyncStorage.getItem(CARD_STORAGE_KEY);
@@ -59,19 +59,18 @@ export const getDecks = async () => {
       value = await JSON.parse(value);
       return value;
     } else {
-      return initDecks;
+      return decks;
     }
   } catch (e) {
     // error reading value
-    return initDecks;
+    return decks;
   }
 };
 
 // take in a single title argument and return the deck associated with that title from all decks:
 export const getDeck = async (deck) => {
-  getDecks().then((decks) => {
-    return decks[deck];
-  });
+  let value = await AsyncStorage.getItem(CARD_STORAGE_KEY);
+  return JSON.parse(value)[deck];
 };
 
 // to create and save a new deck:
