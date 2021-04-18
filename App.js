@@ -1,22 +1,25 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, View } from "react-native";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./src/reducers";
 import middleware from "./src/middleware";
+
 import DeckList from "./src/components/DeckList";
 
-export default function App() {
-  return (
-    <Provider store={createStore(reducer, middleware)}>
-      <View style={styles.container}>
-        {/* <Text>Welcome to Mobile Flashcards!</Text> */}
-        <DeckList />
-        <StatusBar style="auto" />
-      </View>
-    </Provider>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Provider store={createStore(reducer, middleware)}>
+        <View style={styles.container}>
+          {/* <Text>Welcome to Mobile Flashcards!</Text> */}
+          <DeckList />
+          <StatusBar style="auto" />
+        </View>
+      </Provider>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -27,3 +30,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+export default App;

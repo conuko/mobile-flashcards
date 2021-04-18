@@ -1,4 +1,3 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getDecks } from "../utils/api";
 
 export const SHOW_DECKS = "SHOW_DECKS";
