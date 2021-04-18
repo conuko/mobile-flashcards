@@ -6,7 +6,7 @@ import {
   DELETE_DECK,
 } from "../actions";
 
-const initialState = {
+/* const initialState = {
   Deck1: {
     title: "Deck1",
     questions: [
@@ -30,7 +30,7 @@ const initialState = {
       },
     ],
   },
-};
+}; */
 
 /*
 I created the following reducer function with the help of the following knowledge:
