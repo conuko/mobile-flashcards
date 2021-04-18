@@ -1,9 +1,4 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-//getDecks: return all of the decks along with their titles, questions, and answers. (DONE)
-//getDeck:  take in a single id argument and return the deck associated with that id.
-//saveDeck: take in a single title argument and add it to the decks.
-//addCardToDeck: take in two arguments, title and card, and will add the card to the list of questions for the deck with the associated title.
-//check Documentation of AsyncStorage for info how to setup the functions above!
 
 /*
 I set this key, which is basically just where we're going to persist the
@@ -11,18 +6,65 @@ information inside of our AsyncStore (like we did in the FitnessApp Project):
 */
 const CARD_STORAGE_KEY = "MobileFlashcards:cards";
 
-// to get all the decks:
 /*
 I created the following async functions with the help of the following knowledge/resources:
+--> how to set initialDecks:
+https://knowledge.udacity.com/questions/280298
+
 https://knowledge.udacity.com/questions/480149
 https://www.javatpoint.com/react-native-asyncstorage
 https://react-native-async-storage.github.io/async-storage/docs/api
 https://knowledge.udacity.com/questions/135724
 https://knowledge.udacity.com/questions/367646
 */
-export const getDecks = async () => {
+
+// initial Data:
+let initDecks = {
+  Deck1: {
+    title: "Deck1",
+    questions: [
+      {
+        question: "What is React?",
+        answer: "A library for managing user interfaces",
+      },
+      {
+        question: "Where do you make Ajax requests in React?",
+        answer: "The componentDidMount lifecycle event",
+      },
+    ],
+  },
+  Deck2: {
+    title: "Deck2",
+    questions: [
+      {
+        question: "What is a closure?",
+        answer:
+          "The combination of a function and the lexical environment within which that function was declared.",
+      },
+    ],
+  },
+};
+
+// to get all the decks:
+/* export const getDecks = async () => {
   const data = await AsyncStorage.getItem(CARD_STORAGE_KEY);
   return JSON.parse(data);
+}; */
+
+export const getDecks = async () => {
+  try {
+    let value = await AsyncStorage.getItem(CARD_STORAGE_KEY);
+    if (value !== null) {
+      // value previously stored
+      value = await JSON.parse(value);
+      return value;
+    } else {
+      return initDecks;
+    }
+  } catch (e) {
+    // error reading value
+    return initDecks;
+  }
 };
 
 // take in a single title argument and return the deck associated with that title from all decks:
