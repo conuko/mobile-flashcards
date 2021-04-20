@@ -9,12 +9,16 @@ const DeckCard = styled(Card)`
   elevation: 5;
 `;
 
+const DeckTitle = styled(Title)`
+  font-family: ${(props) => props.theme.fonts.body};
+`;
+
 const DeckListCard = ({ deck }) => {
   //TODO: create method to navigate (with navigation from react-native) to IndividualDeck.js
   return (
     <DeckCard>
       <Card.Content>
-        <Title>{deck.title}</Title>
+        <DeckTitle>{deck.title}</DeckTitle>
         <Paragraph>
           {deck.questions.length} {deck.questions.length > 1 ? "cards" : "card"}
         </Paragraph>
