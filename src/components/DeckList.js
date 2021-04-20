@@ -7,6 +7,12 @@ import { getDecks } from "../utils/api";
 import { showDecks } from "../actions";
 import DeckListCard from "./DeckListCard";
 import { SafeArea } from "../utils/safeArea";
+import styled from "styled-components/native";
+
+const DeckListContainer = styled.View`
+  flex: 1;
+  padding: ${(props) => props.theme.space[3]};
+`;
 
 /*
 I created DeckList with the help of the following knowledge:
@@ -27,13 +33,13 @@ class DeckList extends Component {
     const { allDecks } = this.props;
     return (
       <SafeArea>
-        <View style={styles.container}>
+        <DeckListContainer>
           <ScrollView>
             {allDecks.map((deck) => {
               return <DeckListCard key={deck.title} deck={deck} />;
             })}
           </ScrollView>
-        </View>
+        </DeckListContainer>
       </SafeArea>
     );
   }
@@ -45,14 +51,5 @@ function mapStateToProps(state) {
     allDecks,
   };
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default connect(mapStateToProps)(DeckList);

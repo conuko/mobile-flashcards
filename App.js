@@ -2,7 +2,9 @@ import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 import { createStore } from "redux";
-import { Provider } from "react-redux";
+import { ThemeProvider } from "styled-components/native";
+import { theme } from "./src/infrastructure/theme";
+import { Provider as StoreProvider } from "react-redux";
 import reducer from "./src/reducers";
 import middleware from "./src/middleware";
 import DeckList from "./src/components/DeckList";
@@ -21,8 +23,8 @@ const Tab = createBottomTabNavigator();
 class App extends Component {
   render() {
     return (
-      <Provider store={createStore(reducer, middleware)}>
-        <>
+      <StoreProvider store={createStore(reducer, middleware)}>
+        <ThemeProvider theme={theme}>
           <NavigationContainer>
             <Tab.Navigator>
               <Tab.Screen name="Decks" component={DeckList} />
@@ -30,8 +32,8 @@ class App extends Component {
             </Tab.Navigator>
           </NavigationContainer>
           <ExpoStatusBar style="auto" />
-        </>
-      </Provider>
+        </ThemeProvider>
+      </StoreProvider>
     );
   }
 }
