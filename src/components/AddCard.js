@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, SubmitBtn } from "react-native";
+import { View, Text, SubmitBtn, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { addCardToDeck } from "../utils/api";
 import { addCard } from "../actions/index";
+import { SafeArea } from "../utils/safeArea";
 
 /* This will be a controlled component with two input forms.
 --> So this component will also need its own state:
@@ -17,11 +18,22 @@ question & answer
 class AddCard extends Component {
   render() {
     return (
-      <View>
-        <Text>ADD CARD</Text>
-      </View>
+      <SafeArea>
+        <View style={styles.container}>
+          <Text>ADD CARD</Text>
+        </View>
+      </SafeArea>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 
 export default AddCard;

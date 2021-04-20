@@ -1,22 +1,36 @@
-import { StatusBar } from "expo-status-bar";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./src/reducers";
 import middleware from "./src/middleware";
-
 import DeckList from "./src/components/DeckList";
+import NewDeck from "./src/components/NewDeck";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+/*
+I used the following references and knowledge to create App.js:
+https://reactnative.dev/docs/statusbar
+
+*/
+
+const Tab = createBottomTabNavigator();
 
 class App extends Component {
   render() {
     return (
       <Provider store={createStore(reducer, middleware)}>
-        <View style={styles.container}>
-          {/* <Text>Welcome to Mobile Flashcards!</Text> */}
-          <DeckList />
-          <StatusBar style="auto" />
-        </View>
+        <>
+          <NavigationContainer>
+            <Tab.Navigator>
+              <Tab.Screen name="Decks" component={DeckList} />
+              <Tab.Screen name="Add Deck" component={NewDeck} />
+            </Tab.Navigator>
+          </NavigationContainer>
+          <ExpoStatusBar style="auto" />
+        </>
       </Provider>
     );
   }
