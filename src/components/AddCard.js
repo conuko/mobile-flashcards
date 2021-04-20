@@ -3,7 +3,7 @@ import { View, Text, SubmitBtn, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { addCardToDeck } from "../utils/api";
 import { addCard } from "../actions/index";
-import { SafeArea } from "../utils/safeArea";
+import { SafeArea } from "../utils/SafeArea";
 
 /* This will be a controlled component with two input forms.
 --> So this component will also need its own state:

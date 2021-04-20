@@ -14,8 +14,8 @@ https://knowledge.udacity.com/questions/367646
 
 // initial Data:
 export const decks = {
-  Deck1: {
-    title: "Deck1",
+  React: {
+    title: "React",
     questions: [
       {
         question: "What is React?",
@@ -25,10 +25,14 @@ export const decks = {
         question: "Where do you make Ajax requests in React?",
         answer: "The componentDidMount lifecycle event",
       },
+      {
+        question: "Where do you make Ajax requests in React?",
+        answer: "The componentDidMount lifecycle event",
+      },
     ],
   },
-  Deck2: {
-    title: "Deck2",
+  Closure: {
+    title: "Closure",
     questions: [
       {
         question: "What is a closure?",

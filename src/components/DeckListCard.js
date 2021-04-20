@@ -1,12 +1,13 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { Text } from "../utils/Text";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
 import styled from "styled-components/native";
+import { Spacer } from "../utils/Spacer";
 
 const DeckCard = styled(Card)`
   padding: ${(props) => props.theme.space[3]};
   background-color: ${(props) => props.theme.colors.bg.primary};
-  elevation: 5;
 `;
 
 const DeckTitle = styled(Title)`
@@ -16,7 +17,7 @@ const DeckTitle = styled(Title)`
 const DeckListCard = ({ deck }) => {
   //TODO: create method to navigate (with navigation from react-native) to IndividualDeck.js
   return (
-    <DeckCard>
+    <DeckCard elevation={5}>
       <Card.Content>
         <DeckTitle>{deck.title}</DeckTitle>
         <Paragraph>

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { getDecks } from "../utils/api";
 import { showDecks } from "../actions";
 import DeckListCard from "./DeckListCard";
-import { SafeArea } from "../utils/safeArea";
+import { SafeArea } from "../utils/SafeArea";
 import styled from "styled-components/native";
 
 const DeckListContainer = styled.View`
