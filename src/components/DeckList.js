@@ -11,7 +11,7 @@ import styled from "styled-components/native";
 
 const DeckListContainer = styled.View`
   flex: 1;
-  padding: ${(props) => props.theme.space[3]};
+  padding: 16px;
 `;
 
 /*

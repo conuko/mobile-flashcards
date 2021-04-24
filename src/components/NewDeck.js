@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { View, SubmitBtn } from "react-native";
-import { Text } from "../utils/Text";
+import { Button, Title, TextInput, Text } from "react-native-paper";
 import { connect } from "react-redux";
 import { addCardToDeck } from "../utils/api";
 import { addCard } from "../actions/index";
@@ -18,21 +18,29 @@ deckTitle
 */
 const AddCardContainer = styled.View`
   flex: 1;
-  padding: ${(props) => props.theme.space[3]};
+  padding: 16px;
 `;
 
-class NewDeck extends Component {
-  render() {
-    return (
-      <SafeArea>
-        <AddCardContainer>
-          <Text>NEW DECK</Text>
-          <Text variant="caption">What is the title of your new deck?</Text>
-          <Text variant="label">Deck Title</Text>
-        </AddCardContainer>
-      </SafeArea>
-    );
-  }
-}
+const NewDeck = () => {
+  const [text, setText] = useState("");
+
+  return (
+    <SafeArea>
+      <AddCardContainer>
+        <Text>NEW DECK</Text>
+        <Title variant="caption">What is the title of your new deck?</Title>
+        <TextInput
+          label="Deck Title"
+          mode="outlined"
+          value={text}
+          onChangeText={(event) => setText(event)}
+        />
+        <Button mode="contained" onPress={() => console.log(text)}>
+          Submit
+        </Button>
+      </AddCardContainer>
+    </SafeArea>
+  );
+};
 
 export default NewDeck;

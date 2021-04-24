@@ -1,17 +1,11 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Text } from "../utils/Text";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
 import styled from "styled-components/native";
-import { Spacer } from "../utils/Spacer";
 
 const DeckCard = styled(Card)`
-  padding: ${(props) => props.theme.space[3]};
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const DeckTitle = styled(Title)`
-  font-family: ${(props) => props.theme.fonts.body};
+  padding: 16px;
+  margin-top: 16px;
 `;
 
 const DeckListCard = ({ deck }) => {
@@ -19,7 +13,7 @@ const DeckListCard = ({ deck }) => {
   return (
     <DeckCard elevation={5}>
       <Card.Content>
-        <DeckTitle>{deck.title}</DeckTitle>
+        <Title>{deck.title}</Title>
         <Paragraph>
           {deck.questions.length} {deck.questions.length > 1 ? "cards" : "card"}
         </Paragraph>
