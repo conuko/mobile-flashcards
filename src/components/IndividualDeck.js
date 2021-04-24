@@ -10,13 +10,12 @@ class IndividualDeck extends Component {
     --> method to delete the deck
     */
   render() {
+    const { deck, navigation } = this.props;
     return (
       <View>
         <View>
-          {/*
           <Text>{deck.title}</Text>
           <Text>{deck.questions.length}</Text>
-          */}
         </View>
         <View>
           <SubmitBtn>Add Card</SubmitBtn>

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
 import styled from "styled-components/native";
 
@@ -8,8 +8,9 @@ const DeckCard = styled(Card)`
   margin-top: 16px;
 `;
 
-const DeckListCard = ({ deck }) => {
+const DeckListCard = ({ navigation, deck }) => {
   //TODO: create method to navigate (with navigation from react-native) to IndividualDeck.js
+
   return (
     <DeckCard elevation={5}>
       <Card.Content>
@@ -19,7 +20,9 @@ const DeckListCard = ({ deck }) => {
         </Paragraph>
       </Card.Content>
       <Card.Actions>
-        <Button>Show more</Button>
+        <Button onPress={() => navigation.navigate("Deck", { deck: deck.title })}>
+          Show more
+        </Button>
       </Card.Actions>
     </DeckCard>
   );

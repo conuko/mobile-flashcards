@@ -4,7 +4,6 @@ import { Button, Title, TextInput, Text } from "react-native-paper";
 import { connect } from "react-redux";
 import { addCardToDeck } from "../utils/api";
 import { addCard } from "../actions/index";
-import { SafeArea } from "../utils/SafeArea";
 import styled from "styled-components/native";
 
 /* This will be a controlled component with two input forms.
@@ -25,21 +24,19 @@ const NewDeck = () => {
   const [text, setText] = useState("");
 
   return (
-    <SafeArea>
-      <AddCardContainer>
-        <Text>NEW DECK</Text>
-        <Title variant="caption">What is the title of your new deck?</Title>
-        <TextInput
-          label="Deck Title"
-          mode="outlined"
-          value={text}
-          onChangeText={(event) => setText(event)}
-        />
-        <Button mode="contained" onPress={() => console.log(text)}>
-          Submit
-        </Button>
-      </AddCardContainer>
-    </SafeArea>
+    <AddCardContainer>
+      <Text>NEW DECK</Text>
+      <Title variant="caption">What is the title of your new deck?</Title>
+      <TextInput
+        label="Deck Title"
+        mode="outlined"
+        value={text}
+        onChangeText={(event) => setText(event)}
+      />
+      <Button mode="contained" onPress={() => console.log(text)}>
+        Submit
+      </Button>
+    </AddCardContainer>
   );
 };
 

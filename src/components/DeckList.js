@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { getDecks } from "../utils/api";
 import { showDecks } from "../actions";
 import DeckListCard from "./DeckListCard";
-import { SafeArea } from "../utils/SafeArea";
 import styled from "styled-components/native";
 
 const DeckListContainer = styled.View`
@@ -30,17 +29,21 @@ class DeckList extends Component {
   }
 
   render() {
-    const { allDecks } = this.props;
+    const { allDecks, navigation } = this.props;
     return (
-      <SafeArea>
-        <DeckListContainer>
-          <ScrollView>
-            {allDecks.map((deck) => {
-              return <DeckListCard key={deck.title} deck={deck} />;
-            })}
-          </ScrollView>
-        </DeckListContainer>
-      </SafeArea>
+      <DeckListContainer>
+        <ScrollView>
+          {allDecks.map((deck) => {
+            return (
+              <DeckListCard
+                key={deck.title}
+                deck={deck}
+                navigation={navigation}
+              />
+            );
+          })}
+        </ScrollView>
+      </DeckListContainer>
     );
   }
 }
