@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import { View, SubmitBtn } from "react-native";
 import { Button, Title, TextInput, Text } from "react-native-paper";
-import { connect } from "react-redux";
-import { addCardToDeck } from "../utils/api";
-import { addCard } from "../actions/index";
+import { useDispatch } from "react-redux";
+import { addDeck } from "../actions/index";
 import styled from "styled-components/native";
 
 /* This will be a controlled component with two input forms.
---> So this component will also need its own state:
-deckTitle
---> a handleSubmit method to submit the new deck to the store and db
-    update Redux store
-    update DB (api.js)
+TODO:
 --> navigation: navigationBar on top &
     after click on Submitbutton it will navigate to IndividualDeck.js
 */
@@ -22,6 +17,13 @@ const AddCardContainer = styled.View`
 
 const NewDeck = () => {
   const [text, setText] = useState("");
+  const dispatch = useDispatch();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(addDeck(text));
+    setText("");
+  };
 
   return (
     <AddCardContainer>
@@ -33,7 +35,7 @@ const NewDeck = () => {
         value={text}
         onChangeText={(event) => setText(event)}
       />
-      <Button mode="contained" onPress={() => console.log(text)}>
+      <Button mode="contained" onPress={handleSubmit}>
         Submit
       </Button>
     </AddCardContainer>
