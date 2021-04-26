@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, SubmitBtn } from "react-native";
-/* import { connect } from "react-redux";
-import { removeDeck } from "../utils/api"; */
+import { connect } from "react-redux";
+import { removeDeck } from "../utils/api";
 
 class IndividualDeck extends Component {
   /* TODO:
@@ -26,4 +26,11 @@ class IndividualDeck extends Component {
   }
 }
 
-export default IndividualDeck;
+function mapStateToProps(state, { route }) {
+  const { deckID } = route.params;
+  return {
+    deck: state[deckID],
+  };
+}
+
+export default connect(mapStateToProps)(IndividualDeck);

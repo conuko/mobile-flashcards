@@ -20,7 +20,9 @@ const DeckListCard = ({ navigation, deck }) => {
         </Paragraph>
       </Card.Content>
       <Card.Actions>
-        <Button onPress={() => navigation.navigate("Deck", { deck: deck.title })}>
+        <Button
+          onPress={() => navigation.navigate("Deck", { deckID: deck.title })}
+        >
           Show more
         </Button>
       </Card.Actions>
