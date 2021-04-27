@@ -33,14 +33,15 @@ const AddCard = ({ navigation, route }) => {
 
   const handleChange = (key) => {
     return (value) => {
-      setState(() => ({
+      setState((prevState) => ({
+        ...prevState,
         [key]: value,
       }));
     };
   };
 
   const handleSubmit = (event) => {
-    const newCard = { ...state };
+    const newCard = state;
     event.preventDefault();
     // update redux store:
     addCardToDeck(deck, newCard).then(() => {
