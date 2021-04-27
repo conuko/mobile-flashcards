@@ -58,7 +58,7 @@ const NewDeck = (props) => {
         value={text}
         onChangeText={(event) => setText(event)}
       />
-      <Button mode="contained" onPress={handleSubmit}>
+      <Button disabled={text === ""} mode="contained" onPress={handleSubmit}>
         Submit
       </Button>
     </AddDeckContainer>

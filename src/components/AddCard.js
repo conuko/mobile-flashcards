@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import { Button, Title, TextInput, Text } from "react-native-paper";
 import { useDispatch } from "react-redux";
@@ -31,26 +31,31 @@ const AddCard = ({ navigation, route }) => {
 
   const dispatch = useDispatch();
 
-  const newCard = state;
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setState({
-      [name]: value,
-    });
+  const handleChange = (key) => {
+    return (value) => {
+      setState(() => ({
+        [key]: value,
+      }));
+    };
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // update redux store:
-  //   // dispatch(addCard(text));
-  //   // set the state of the NewDeck component back to "":
-  //   setState("");
-  //   // go back to home-screen:
-  //   toHome();
-  //   // save to DB:
-  //   saveDeck(text);
-  // };
+  const handleSubmit = (event) => {
+    const newCard = { ...state };
+    event.preventDefault();
+    // update redux store:
+    addCardToDeck(deck, newCard).then(() => {
+      dispatch(addCard(deck, newCard));
+    });
+    // set the state of the NewDeck component back to "":
+    setState({
+      question: "",
+      answer: "",
+    });
+    // go back to home-screen:
+    // toHome();
+    // save to DB:
+    addCardToDeck(deck, newCard);
+  };
 
   return (
     <AddCardContainer>
@@ -58,18 +63,16 @@ const AddCard = ({ navigation, route }) => {
       <TextInput
         label="Enter question"
         mode="outlined"
-        name="question"
         value={state.question}
-        onChangeText={handleChange}
+        onChangeText={handleChange("question")}
       />
       <TextInput
         label="Enter answer"
         mode="outlined"
-        name="answer"
         value={state.answer}
-        onChangeText={handleChange}
+        onChangeText={handleChange("answer")}
       />
-      <Button mode="contained" onPress={() => console.log(state)}>
+      <Button mode="contained" onPress={handleSubmit}>
         Submit
       </Button>
     </AddCardContainer>
