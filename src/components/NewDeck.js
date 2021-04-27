@@ -18,13 +18,14 @@ TODO:
 --> navigation: navigationBar on top &
     after click on Submitbutton it will navigate to IndividualDeck.js
 */
-const AddCardContainer = styled.View`
+const AddDeckContainer = styled.View`
   flex: 1;
   padding: 16px;
 `;
 
 const NewDeck = (props) => {
   const [text, setText] = useState("");
+
   const dispatch = useDispatch();
 
   // function to navigate back to the home screen:
@@ -48,7 +49,7 @@ const NewDeck = (props) => {
   };
 
   return (
-    <AddCardContainer>
+    <AddDeckContainer>
       <Text>NEW DECK</Text>
       <Title variant="caption">What is the title of your new deck?</Title>
       <TextInput
@@ -60,7 +61,7 @@ const NewDeck = (props) => {
       <Button mode="contained" onPress={handleSubmit}>
         Submit
       </Button>
-    </AddCardContainer>
+    </AddDeckContainer>
   );
 };
 

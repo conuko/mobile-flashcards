@@ -9,8 +9,6 @@ const DeckCard = styled(Card)`
 `;
 
 const DeckListCard = ({ navigation, deck }) => {
-  //TODO: create method to navigate (with navigation from react-native) to IndividualDeck.js
-
   return (
     <DeckCard elevation={5}>
       <Card.Content>

@@ -9,7 +9,7 @@ import { removeDeck } from "../utils/api";
 https://reactnavigation.org/docs/params/
 https://github.com/udacity/reactnd-UdaciFitness-complete/commit/18aeee6aac40702c2d86cf976a9a67c5691505cf
 https://knowledge.udacity.com/questions/565130
-
+https://knowledge.udacity.com/questions/355220
 */
 
 class IndividualDeck extends Component {
@@ -27,7 +27,11 @@ class IndividualDeck extends Component {
           <Text>{deck.questions.length}</Text>
         </View>
         <View>
-          <Button>Add Card</Button>
+          <Button
+            onPress={() => navigation.navigate("AddCard", { deck: deck.title })}
+          >
+            Add Card
+          </Button>
           <Button>Start Quiz</Button>
         </View>
       </View>
@@ -35,6 +39,7 @@ class IndividualDeck extends Component {
   }
 }
 
+// get the specific deck you clicked on from the store with the deckId passed via route:
 function mapStateToProps(state, { route }) {
   const { deckID } = route.params;
   return {

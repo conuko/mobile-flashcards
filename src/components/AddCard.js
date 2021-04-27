@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import { View, Text, SubmitBtn, StyleSheet } from "react-native";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+import { Button, Title, TextInput, Text } from "react-native-paper";
+import { useDispatch } from "react-redux";
 import { addCardToDeck } from "../utils/api";
 import { addCard } from "../actions/index";
+import styled from "styled-components/native";
 
 /* This will be a controlled component with two input forms.
 --> So this component will also need its own state:
@@ -14,23 +16,64 @@ question & answer
     after click on Submitbutton it will navigate to the current Deck where we added the new card
 */
 
-class AddCard extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>ADD CARD</Text>
-      </View>
-    );
-  }
-}
+const AddCardContainer = styled.View`
+  flex: 1;
+  padding: 16px;
+`;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const AddCard = ({ navigation, route }) => {
+  const [state, setState] = useState({
+    question: "",
+    answer: "",
+  });
+
+  const { deck } = route.params;
+
+  const dispatch = useDispatch();
+
+  const newCard = state;
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setState({
+      [name]: value,
+    });
+  };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   // update redux store:
+  //   // dispatch(addCard(text));
+  //   // set the state of the NewDeck component back to "":
+  //   setState("");
+  //   // go back to home-screen:
+  //   toHome();
+  //   // save to DB:
+  //   saveDeck(text);
+  // };
+
+  return (
+    <AddCardContainer>
+      <Title>{deck}</Title>
+      <TextInput
+        label="Enter question"
+        mode="outlined"
+        name="question"
+        value={state.question}
+        onChangeText={handleChange}
+      />
+      <TextInput
+        label="Enter answer"
+        mode="outlined"
+        name="answer"
+        value={state.answer}
+        onChangeText={handleChange}
+      />
+      <Button mode="contained" onPress={() => console.log(state)}>
+        Submit
+      </Button>
+    </AddCardContainer>
+  );
+};
 
 export default AddCard;

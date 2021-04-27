@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Appbar, Avatar } from "react-native-paper";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import IndividualDeck from "./IndividualDeck";
+import AddCard from "./AddCard";
 import Quiz from "./Quiz";
 import BottomTabs from "./BottomTabs";
 
@@ -29,6 +30,11 @@ const MainNavigation = () => {
             title: `${deckID}`,
           };
         }}
+      />
+      <Stack.Screen
+        name="AddCard"
+        component={AddCard}
+        options={{ headerTitle: "AddCard" }}
       />
       <Stack.Screen
         name="Quiz"
