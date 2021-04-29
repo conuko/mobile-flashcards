@@ -57,8 +57,6 @@ const AddCard = ({ navigation, route }) => {
     });
     // go back to IndividualDeck-screen:
     toDeck();
-    // save to DB:
-    addCardToDeck(deck, newCard);
   };
 
   return (

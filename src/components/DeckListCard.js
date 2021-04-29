@@ -14,7 +14,8 @@ const DeckListCard = ({ navigation, deck }) => {
       <Card.Content>
         <Title>{deck.title}</Title>
         <Paragraph>
-          {deck.questions.length} {deck.questions.length > 1 ? "cards" : "card"}
+          {deck.questions.length}{" "}
+          {deck.questions.length === 1 ? "card" : "cards"}
         </Paragraph>
       </Card.Content>
       <Card.Actions>
