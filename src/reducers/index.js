@@ -11,6 +11,8 @@ I created the following reducer function with the help of the following knowledg
 https://knowledge.udacity.com/questions/367646
 https://knowledge.udacity.com/questions/301976
 https://knowledge.udacity.com/questions/281853
+--> how to create the ADD_CARD case:
+https://knowledge.udacity.com/questions/565980
 */
 export default function decks(state = {}, action) {
   switch (action.type) {
@@ -35,13 +37,13 @@ export default function decks(state = {}, action) {
     case ADD_CARD:
       return {
         ...state,
-        [action.deck.title]: {
-          ...action.deck,
+        [action.deck]: {
+          ...state[action.deck],
           questions: [
-            ...action.deck.questions,
+            ...state[action.deck].questions,
             {
-              question: action.question,
-              answer: action.answer,
+              question: action.newCard.question,
+              answer: action.newCard.answer,
             },
           ],
         },

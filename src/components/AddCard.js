@@ -4,6 +4,7 @@ import { Button, Title, TextInput, Text } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { addCardToDeck } from "../utils/api";
 import { addCard } from "../actions/index";
+import { CommonActions } from "@react-navigation/native";
 import styled from "styled-components/native";
 
 /* This will be a controlled component with two input forms.
@@ -14,6 +15,10 @@ question & answer
     update DB (api.js)
 --> navigation: navigationBar on top &
     after click on Submitbutton it will navigate to the current Deck where we added the new card
+*/
+
+/* I created this component with the help of the following knowledge:
+https://knowledge.udacity.com/questions/565980
 */
 
 const AddCardContainer = styled.View`
@@ -30,6 +35,13 @@ const AddCard = ({ navigation, route }) => {
   const { deck } = route.params;
 
   const dispatch = useDispatch();
+
+  const toDeck = () => {
+    navigation.dispatch({
+      ...CommonActions.goBack(),
+      source: "AddCard",
+    });
+  };
 
   const handleChange = (key) => {
     return (value) => {
@@ -52,8 +64,8 @@ const AddCard = ({ navigation, route }) => {
       question: "",
       answer: "",
     });
-    // go back to home-screen:
-    // toHome();
+    // go back to IndividualDeck-screen:
+    toDeck();
     // save to DB:
     addCardToDeck(deck, newCard);
   };
@@ -73,7 +85,11 @@ const AddCard = ({ navigation, route }) => {
         value={state.answer}
         onChangeText={handleChange("answer")}
       />
-      <Button mode="contained" onPress={handleSubmit}>
+      <Button
+        disabled={state.question === "" || state.answer === ""}
+        mode="contained"
+        onPress={handleSubmit}
+      >
         Submit
       </Button>
     </AddCardContainer>
