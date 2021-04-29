@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { View, SubmitBtn } from "react-native";
 import { Button, Title, TextInput, Text } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { addDeck } from "../actions/index";

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet } from "react-native";
+import React, { useState } from "react";
 import { Button, Title, TextInput, Text } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { addCardToDeck } from "../utils/api";
@@ -7,18 +6,10 @@ import { addCard } from "../actions/index";
 import { CommonActions } from "@react-navigation/native";
 import styled from "styled-components/native";
 
-/* This will be a controlled component with two input forms.
---> So this component will also need its own state:
-question & answer
---> a handleSubmit method to submit the new card to the store and db
-    update Redux store
-    update DB (api.js)
---> navigation: navigationBar on top &
-    after click on Submitbutton it will navigate to the current Deck where we added the new card
-*/
-
-/* I created this component with the help of the following knowledge:
+/* I created this component with the help of the following knowledge and resources:
 https://knowledge.udacity.com/questions/565980
+https://stackoverflow.com/questions/54150783/react-hooks-usestate-with-object
+https://stackoverflow.com/questions/63710791/react-hooks-handle-multiple-inputs
 */
 
 const AddCardContainer = styled.View`
