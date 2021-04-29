@@ -18,16 +18,16 @@ export const decks = {
     title: "React",
     questions: [
       {
-        question: "What is React?",
-        answer: "A library for managing user interfaces",
+        question: "Can you develop with React also for mobile devices?",
+        answer: "Yes",
       },
       {
-        question: "Where do you make Ajax requests in React?",
-        answer: "The componentDidMount lifecycle event",
+        question: "Can you make Ajax requests in React?",
+        answer: "Yes",
       },
       {
-        question: "Where do you make Ajax requests in React?",
-        answer: "The componentDidMount lifecycle event",
+        question: "Is JavaScript a Framework of React?",
+        answer: "No",
       },
     ],
   },
@@ -35,9 +35,8 @@ export const decks = {
     title: "Closure",
     questions: [
       {
-        question: "What is a closure?",
-        answer:
-          "The combination of a function and the lexical environment within which that function was declared.",
+        question: "Is a Closure an array?",
+        answer: "No",
       },
     ],
   },

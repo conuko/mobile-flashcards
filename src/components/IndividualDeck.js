@@ -60,7 +60,11 @@ class IndividualDeck extends Component {
           >
             Add Card
           </Button>
-          <Button mode="contained" disabled={deck.questions.length === 0}>
+          <Button
+            mode="contained"
+            disabled={deck.questions.length === 0}
+            onPress={() => navigation.navigate("Quiz", { deck: deck })}
+          >
             Start Quiz
           </Button>
           <Button onPress={this.handleDelete}>Delete Deck</Button>
