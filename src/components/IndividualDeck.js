@@ -14,6 +14,7 @@ https://knowledge.udacity.com/questions/565130
 https://knowledge.udacity.com/questions/355220
 --> how to delete a deck:
 https://knowledge.udacity.com/questions/200468
+https://knowledge.udacity.com/questions/568161
 --> how to use shouldComponentUpdate to prevent the app from crashing when a deck will deleted:
 https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action
 */
@@ -37,10 +38,12 @@ class IndividualDeck extends Component {
   handleDelete = (event) => {
     event.preventDefault();
     const { deck, dispatch } = this.props;
-    removeDeck(deck).then(() => {
-      dispatch(deleteDeck(deck));
-      this.toHome();
-    });
+    // update redux store:
+    dispatch(deleteDeck(deck));
+    // go back to Home screen:
+    this.toHome();
+    // update DB:
+    removeDeck(deck);
   };
 
   render() {

@@ -46,7 +46,7 @@ const AddCard = ({ navigation, route }) => {
   const handleSubmit = (event) => {
     const newCard = state;
     event.preventDefault();
-    // update redux store:
+    // update DB and redux store:
     addCardToDeck(deck, newCard).then(() => {
       dispatch(addCard(deck, newCard));
     });

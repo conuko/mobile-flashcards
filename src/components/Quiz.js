@@ -26,9 +26,9 @@ const Quiz = ({ navigation, route }) => {
 
   const { deck } = route.params;
 
-  const submitAnswer = (answer) => {
+/*   const submitAnswer = (answer) => {
     if (answer )
-  }
+  } */
 
   return (
     <QuizContainer>
