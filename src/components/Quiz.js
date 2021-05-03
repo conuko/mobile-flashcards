@@ -40,13 +40,19 @@ const Quiz = ({ navigation, route }) => {
   // get the lenght of all decks:
   const allDecks = deck.questions.length;
 
-  //method to handle the answer (click on correct or incorrect button):
-  /*   const handleAnswer = (answer) => {
+  // method to handle the answer (click on correct or incorrect button):
+  const handleAnswer = (answer) => {
     if (answer === "correct") {
       setScore(score + 1);
       setCurrentCard(currentCard + 1);
+      setIsAnswer(false);
+      /* deck.questions[currentCard]; */
+    } else {
+      setCurrentCard(currentCard + 1);
+      setIsAnswer(false);
+      /* deck.questions[currentCard]; */
     }
-  }; */
+  };
 
   // method for (re)starting the Quiz:
   const start = () => {
@@ -58,16 +64,20 @@ const Quiz = ({ navigation, route }) => {
 
   // TO DO: create a way to show the next card, after clicking on "correct" or "incorrect" button!
   // --> with a method to get the next question:
-  const goToNextQuestion = () => {
-    setCurrentCard(currenctCard + 1);
+  /*   const goToNextQuestion = () => {
+    setCurrentCard(currentCard + 1);
     const nextQuestion = deck.questions[currentCard];
     setIsAnswer(false);
-  };
+  }; */
+
+  if (score === allDecks) {
+    setShowScore(true);
+  }
 
   return (
     <QuizContainer>
       <View>
-        <Title variant="caption">{allDecks}</Title>
+        <Title variant="caption">{deck.questions[currentCard]}</Title>
       </View>
       <View>
         <Button>Answer</Button>
@@ -77,14 +87,14 @@ const Quiz = ({ navigation, route }) => {
         <Button
           mode="contained"
           color="green"
-          //onPress={handleAnswer("correct")}
+          onPress={handleAnswer("correct")}
         >
           Correct
         </Button>
         <Button
           mode="contained"
           color="red"
-          //onPress={handleAnswer("incorrect")}
+          onPress={handleAnswer("incorrect")}
         >
           Incorrect
         </Button>
