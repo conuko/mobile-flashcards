@@ -1,30 +1,29 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
-import { Button, Card, Title, Paragraph } from "react-native-paper";
+import { Card, Title, Paragraph } from "react-native-paper";
 import styled from "styled-components/native";
 
 const DeckCard = styled(Card)`
-  padding: 16px;
+  padding: 32px;
   margin-top: 16px;
+  elevation: 0.5;
+  border-radius: 10px;
 `;
 
 const DeckListCard = ({ navigation, deck }) => {
   return (
-    <DeckCard elevation={5}>
-      <Card.Content>
-        <Title>{deck.title}</Title>
-        <Paragraph>
-          {deck.questions.length}{" "}
-          {deck.questions.length === 1 ? "card" : "cards"}
-        </Paragraph>
-      </Card.Content>
-      <Card.Actions>
-        <Button
-          onPress={() => navigation.navigate("Deck", { deckID: deck.title })}
-        >
-          Show more
-        </Button>
-      </Card.Actions>
+    <DeckCard>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Deck", { deckID: deck.title })}
+      >
+        <Card.Content>
+          <Title>{deck.title}</Title>
+          <Paragraph>
+            {deck.questions.length}{" "}
+            {deck.questions.length === 1 ? "card" : "cards"}
+          </Paragraph>
+        </Card.Content>
+      </TouchableOpacity>
     </DeckCard>
   );
 };

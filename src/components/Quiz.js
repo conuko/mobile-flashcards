@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Button, Title, TextInput, Text } from "react-native-paper";
+import {
+  Button,
+  Card,
+  Title,
+  Paragraph,
+  TextInput,
+  Text,
+} from "react-native-paper";
 import { connect } from "react-redux";
 import { View } from "react-native";
 import styled from "styled-components/native";
@@ -24,6 +31,13 @@ const QuizContainer = styled.View`
 const ScoreContainer = styled.View`
   flex: 1;
   padding: 16px;
+`;
+
+const QuizCard = styled(Card)`
+  padding: 32px;
+  margin-top: 16px;
+  elevation: 0.5;
+  border-radius: 10px;
 `;
 // < ================ Styling End ================ >
 
@@ -79,16 +93,20 @@ class Quiz extends Component {
     return (
       <QuizContainer>
         {currentCard === allDecks ? (
-          <ScoreContainer>
-            <Title>Your Score</Title>
-            <Text>{`${
-              (score / allDecks) * 100
-            }% of your answers were correct.`}</Text>
-            <Button onPress={this.start}>Restart Quiz</Button>
-          </ScoreContainer>
+          <QuizCard>
+            <Card.Content>
+              <Title>Your Score</Title>
+              <Text>{`${
+                (score / allDecks) * 100
+              }% of your answers were correct.`}</Text>
+            </Card.Content>
+            <Card.Actions>
+              <Button onPress={this.start}>Restart Quiz</Button>
+            </Card.Actions>
+          </QuizCard>
         ) : (
-          <View>
-            <View>
+          <QuizCard>
+            <Card.Content>
               {isAnswer === false ? (
                 <View>
                   <Title variant="caption">
@@ -109,8 +127,8 @@ class Quiz extends Component {
                 </View>
               )}
               <Button onPress={this.start}>Restart Quiz</Button>
-            </View>
-            <View>
+            </Card.Content>
+            <Card.Content>
               <Button
                 mode="contained"
                 color="green"
@@ -125,8 +143,8 @@ class Quiz extends Component {
               >
                 Incorrect
               </Button>
-            </View>
-          </View>
+            </Card.Content>
+          </QuizCard>
         )}
       </QuizContainer>
     );

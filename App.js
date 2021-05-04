@@ -2,34 +2,42 @@ import React from "react";
 import { createStore } from "redux";
 import { Provider as StoreProvider } from "react-redux";
 import {
-  Provider as PaperProvider,
   DarkTheme as PaperDarkTheme,
+  DefaultTheme as PaperDefaultTheme,
+  Provider as PaperProvider,
 } from "react-native-paper";
-import reducer from "./src/reducers";
-import middleware from "./src/middleware";
 import {
   NavigationContainer,
+  DefaultTheme as NavigationDefaultTheme,
   DarkTheme as NavigationDarkTheme,
 } from "@react-navigation/native";
+import reducer from "./src/reducers";
+import middleware from "./src/middleware";
 import MainNavigation from "./src/components/MainNavigation";
 
 /*
 I used the following references and knowledge to create App.js:
 https://reactnative.dev/docs/statusbar
-
+https://reactnavigation.org/blog/2020/01/29/using-react-navigation-5-with-react-native-paper/#theming
 */
 
-const CombinedDarkTheme = {
-  ...PaperDarkTheme,
-  ...NavigationDarkTheme,
-  colors: { ...PaperDarkTheme.colors, ...NavigationDarkTheme.colors },
+// ToDo: create the functionality to switch between default and dark theme.
+
+// Standard Theme:
+const CombinedDefaultTheme = {
+  ...PaperDefaultTheme,
+  ...NavigationDefaultTheme,
+  colors: { ...PaperDefaultTheme.colors, ...NavigationDefaultTheme.colors },
 };
+
+// Dark Theme:
+const CombinedDarkTheme = { ...PaperDarkTheme, ...NavigationDarkTheme };
 
 export default function App() {
   return (
     <StoreProvider store={createStore(reducer, middleware)}>
-      <PaperProvider theme={CombinedDarkTheme}>
-        <NavigationContainer theme={CombinedDarkTheme}>
+      <PaperProvider theme={CombinedDefaultTheme}>
+        <NavigationContainer theme={CombinedDefaultTheme}>
           <MainNavigation />
         </NavigationContainer>
       </PaperProvider>
