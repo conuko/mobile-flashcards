@@ -10,7 +10,6 @@ import { CommonActions } from "@react-navigation/native";
 I created this component as we did in the react-native part with the AddEntry.js component
 and with the help of the following resources/knowledge:
 --> I created the "toHome" method the same way we did it in the React Native course.
-
 */
 
 /* This will be a controlled component with two input forms.
