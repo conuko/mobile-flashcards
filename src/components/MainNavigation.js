@@ -1,7 +1,5 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Appbar, Avatar } from "react-native-paper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import IndividualDeck from "./IndividualDeck";
 import AddCard from "./AddCard";
 import Quiz from "./Quiz";

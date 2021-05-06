@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Card, Title, Text } from "react-native-paper";
-import { connect } from "react-redux";
 import { View } from "react-native";
 import styled from "styled-components/native";
 import { red } from "../utils/colors";
@@ -9,7 +8,7 @@ import cardPicture from "../assets/AdobeStock_213167172.png";
 
 /* I used the following knowledge/ressources to create this component:
 https://knowledge.udacity.com/questions/282070
---> how to flip between cards:
+--> how to switch between question and answer:
 https://knowledge.udacity.com/questions/298722
 --> how to create and iterate over the cards:
 https://knowledge.udacity.com/questions/202174
@@ -69,7 +68,7 @@ class Quiz extends Component {
     this.setState({ isAnswer: event });
   };
 
-  // method for (re)starting the Quiz:
+  // method for restarting the Quiz:
   start = () => {
     this.setState((prevState) => ({
       ...prevState,
@@ -80,7 +79,7 @@ class Quiz extends Component {
   };
 
   render() {
-    // get the cards/questions list from route params:
+    // get the deck from route params:
     const { deck } = this.props.route.params;
 
     // get the lenght of all decks:

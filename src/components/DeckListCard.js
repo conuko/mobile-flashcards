@@ -4,6 +4,7 @@ import { Card, Title, Paragraph } from "react-native-paper";
 import styled from "styled-components/native";
 import cardPicture from "../assets/AdobeStock_213167172.png";
 
+// < ================ Styling Start ================ >
 const DeckCard = styled(Card)`
   margin-top: 16px;
   elevation: 0.5;
@@ -13,6 +14,7 @@ const DeckCard = styled(Card)`
 const Content = styled(Card.Content)`
   padding: 16px;
 `;
+// < ================ Styling End ================ >
 
 const DeckListCard = ({ navigation, deck }) => {
   return (

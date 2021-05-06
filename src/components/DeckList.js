@@ -8,10 +8,12 @@ import { showDecks } from "../actions";
 import DeckListCard from "./DeckListCard";
 import styled from "styled-components/native";
 
+// < ================ Styling Start ================ >
 const DeckListContainer = styled.View`
   flex: 1;
   padding: 16px;
 `;
+// < ================ Styling End ================ >
 
 /*
 I created DeckList with the help of the following knowledge:

@@ -42,7 +42,6 @@ const StyledText = styled(Text)`
 const StyledButton = styled(Button)`
   margin-top: 16px;
 `;
-
 // < ================ Styling End ================ >
 
 class IndividualDeck extends Component {
