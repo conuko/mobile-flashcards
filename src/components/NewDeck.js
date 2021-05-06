@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Title, TextInput, Text } from "react-native-paper";
+import { Button, Title, TextInput } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { addDeck } from "../actions/index";
 import { saveDeck } from "../utils/api";

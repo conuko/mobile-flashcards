@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
 import styled from "styled-components/native";
 import cardPicture from "../assets/AdobeStock_213167172.png";

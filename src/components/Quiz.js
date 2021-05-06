@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Card,
-  Title,
-  Paragraph,
-  TextInput,
-  Text,
-} from "react-native-paper";
+import { Button, Card, Title, Text } from "react-native-paper";
 import { connect } from "react-redux";
 import { View } from "react-native";
 import styled from "styled-components/native";
+import { red } from "../utils/colors";
+import { green } from "../utils/colors";
+import cardPicture from "../assets/AdobeStock_213167172.png";
 
 /* I used the following knowledge/ressources to create this component:
 https://knowledge.udacity.com/questions/282070
@@ -28,16 +24,18 @@ const QuizContainer = styled.View`
   padding: 16px;
 `;
 
-const ScoreContainer = styled.View`
-  flex: 1;
-  padding: 16px;
-`;
-
 const QuizCard = styled(Card)`
-  padding: 32px;
   margin-top: 16px;
   elevation: 0.5;
   border-radius: 10px;
+`;
+
+const Content = styled(Card.Content)`
+  padding: 16px;
+`;
+
+const StyledButton = styled(Button)`
+  margin-top: 16px;
 `;
 // < ================ Styling End ================ >
 
@@ -83,7 +81,7 @@ class Quiz extends Component {
 
   render() {
     // get the cards/questions list from route params:
-    const { deck, navigation } = this.props;
+    const { deck } = this.props.route.params;
 
     // get the lenght of all decks:
     const allDecks = deck.questions.length;
@@ -94,19 +92,21 @@ class Quiz extends Component {
       <QuizContainer>
         {currentCard === allDecks ? (
           <QuizCard>
-            <Card.Content>
+            <Card.Cover source={cardPicture} />
+            <Content>
               <Title>Your Score</Title>
               <Text>{`${
                 (score / allDecks) * 100
               }% of your answers were correct.`}</Text>
-            </Card.Content>
-            <Card.Actions>
-              <Button onPress={this.start}>Restart Quiz</Button>
-            </Card.Actions>
+              <Content>
+                <Button onPress={this.start}>Restart Quiz</Button>
+              </Content>
+            </Content>
           </QuizCard>
         ) : (
           <QuizCard>
-            <Card.Content>
+            <Card.Cover source={cardPicture} />
+            <Content>
               {isAnswer === false ? (
                 <View>
                   <Title variant="caption">
@@ -127,23 +127,21 @@ class Quiz extends Component {
                 </View>
               )}
               <Button onPress={this.start}>Restart Quiz</Button>
-            </Card.Content>
-            <Card.Content>
-              <Button
+              <StyledButton
                 mode="contained"
-                color="green"
+                color={green}
                 onPress={() => this.handleAnswer("correct")}
               >
                 Correct
-              </Button>
-              <Button
+              </StyledButton>
+              <StyledButton
                 mode="contained"
-                color="red"
+                color={red}
                 onPress={() => this.handleAnswer("incorrect")}
               >
                 Incorrect
-              </Button>
-            </Card.Content>
+              </StyledButton>
+            </Content>
           </QuizCard>
         )}
       </QuizContainer>
@@ -151,10 +149,4 @@ class Quiz extends Component {
   }
 }
 
-const mapStateToProps = (state, { route }) => {
-  return {
-    deck: route.params.deck,
-  };
-};
-
-export default connect(mapStateToProps)(Quiz);
+export default Quiz;

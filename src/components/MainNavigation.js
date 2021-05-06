@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 const MainNavigation = () => {
   return (
     <Stack.Navigator initialRouteName="Main" headerMode="screen">
-      <Stack.Screen name="🃏 Flash-Cards 🃏" component={BottomTabs} />
+      <Stack.Screen name="🃏 Flash Cards 🃏" component={BottomTabs} />
       <Stack.Screen
         name="Deck"
         component={IndividualDeck}
