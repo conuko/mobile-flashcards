@@ -1,8 +1,6 @@
-import Constants from "expo-constants";
 import * as Notifications from "expo-notifications";
 import * as Permissions from "expo-permissions";
-import React, { useState, useEffect, useRef } from "react";
-import { Text, View, Button, Platform, Alert, Linking } from "react-native";
+import { Alert, Linking } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 /* --> how to create and use expo notifications:

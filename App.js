@@ -29,7 +29,7 @@ const CombinedDefaultTheme = {
   colors: { ...PaperDefaultTheme.colors, ...NavigationDefaultTheme.colors },
 };
 
-// Dark Theme:
+// Dark Theme (can be applied optionally):
 const CombinedDarkTheme = { ...PaperDarkTheme, ...NavigationDarkTheme };
 
 export default function App() {
