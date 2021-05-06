@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Button, Card, Title, Text } from "react-native-paper";
 import { View } from "react-native";
+import {
+  setLocalNotification,
+  clearLocalNotification,
+} from "../utils/notifications";
 import styled from "styled-components/native";
 import { red } from "../utils/colors";
 import { green } from "../utils/colors";
@@ -61,6 +65,7 @@ class Quiz extends Component {
         isAnswer: false,
       }));
     }
+    clearLocalNotification().then(setLocalNotification);
   };
 
   // method to swith between question and answer:
