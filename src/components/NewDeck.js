@@ -5,6 +5,7 @@ import { addDeck } from "../actions/index";
 import { saveDeck } from "../utils/api";
 import styled from "styled-components/native";
 import { CommonActions } from "@react-navigation/native";
+import { View } from "react-native";
 
 /*
 I created this component as we did in the react-native part with the AddEntry.js component
@@ -17,9 +18,21 @@ TODO:
 --> navigation: navigationBar on top &
     after click on Submitbutton it will navigate to IndividualDeck.js
 */
-const AddDeckContainer = styled.View`
+const AddDeckContainer = styled(View)`
   flex: 1;
   padding: 16px;
+`;
+
+const StyledTitle = styled(Title)`
+  padding-top: 32px;
+  padding-bottom: 16px;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 500;
+  line-height: 40px;
+`;
+const StyledButton = styled(Button)`
+  margin-top: 16px;
 `;
 
 const NewDeck = (props) => {
@@ -49,17 +62,22 @@ const NewDeck = (props) => {
 
   return (
     <AddDeckContainer>
-      <Text>NEW DECK</Text>
-      <Title variant="caption">What is the title of your new deck?</Title>
+      <StyledTitle variant="caption">
+        What is the title of your new deck?
+      </StyledTitle>
       <TextInput
         label="Deck Title"
         mode="outlined"
         value={text}
         onChangeText={(event) => setText(event)}
       />
-      <Button disabled={text === ""} mode="contained" onPress={handleSubmit}>
+      <StyledButton
+        disabled={text === ""}
+        mode="contained"
+        onPress={handleSubmit}
+      >
         Submit
-      </Button>
+      </StyledButton>
     </AddDeckContainer>
   );
 };
