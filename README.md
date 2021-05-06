@@ -11,8 +11,6 @@ This app was built with React, React-Native, Redux, React-Redux, Expo, React-Nat
 
 - [Getting Started](#getting-started)
 - [Platform](#platform)
-- [Functionalities](#functionalities)
-- [Views](#Views)
 - [Important info about the DATA](#important-info-about-the-DATA)
 - [Create React App](#create-react-app)
 - [License](#license)
@@ -29,26 +27,6 @@ Do the following to get started:
 ## Platform
 
 This app has only been tested on an Android phone and Android Emulator using the Expo app and Android Emulator.
-
-## Functionalities
-
-- Create a deck which can hold an unlimited number of cards.
-- Add a card to a specific deck.
-- Start a quiz on a specific deck.
-- Toggle a button to reveal the answer.
-- Select Correct/Incorrect for each question of the quiz.
-- Receive the score once the quiz is completed
-- Receive a daily notification to remind to study if users haven't already completed a quizz.
-
-## Views
-
-This app has currently 5 views:
-
-- HomeScreen (DeckList View)
-- Deck (Individual Deck View)
-- Quiz
-- New Deck
-- New Question
 
 ## Important info about the DATA
 
