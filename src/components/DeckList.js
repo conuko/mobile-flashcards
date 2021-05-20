@@ -15,14 +15,6 @@ const DeckListContainer = styled.View`
 `;
 // < ================ Styling End ================ >
 
-/*
-I created DeckList with the help of the following knowledge:
-https://knowledge.udacity.com/questions/280298
-https://knowledge.udacity.com/questions/557077
---> how to use componentDidMount to get decks from api and dispatch the data to the store
-https://knowledge.udacity.com/questions/247636
-*/
-
 class DeckList extends Component {
   // get decks from api and dispatch the data to the store:
   componentDidMount() {

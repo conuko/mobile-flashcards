@@ -8,19 +8,6 @@ import { CommonActions } from "@react-navigation/native";
 import styled from "styled-components/native";
 import { red } from "../utils/colors";
 
-/* I created this component with the help of the following resources/knowledge:
---> how to pass parameters to routes (in my mapStateToProps function):
-https://reactnavigation.org/docs/params/
-https://github.com/udacity/reactnd-UdaciFitness-complete/commit/18aeee6aac40702c2d86cf976a9a67c5691505cf
-https://knowledge.udacity.com/questions/565130
-https://knowledge.udacity.com/questions/355220
---> how to delete a deck:
-https://knowledge.udacity.com/questions/200468
-https://knowledge.udacity.com/questions/568161
---> how to use shouldComponentUpdate to prevent the app from crashing when a deck will deleted:
-https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action
-*/
-
 // < ================ Styling Start ================ >
 const IndividualDeckContainer = styled(View)`
   flex: 1;

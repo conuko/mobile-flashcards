@@ -16,12 +16,6 @@ import middleware from "./src/middleware";
 import MainNavigation from "./src/components/MainNavigation";
 import { setLocalNotification } from "./src/utils/notifications";
 
-/*
-I used the following references and knowledge to create App.js:
-https://reactnative.dev/docs/statusbar
-https://reactnavigation.org/blog/2020/01/29/using-react-navigation-5-with-react-native-paper/#theming
-*/
-
 // Standard Theme:
 const CombinedDefaultTheme = {
   ...PaperDefaultTheme,

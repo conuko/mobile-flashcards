@@ -10,17 +10,6 @@ import { red } from "../utils/colors";
 import { green } from "../utils/colors";
 import cardPicture from "../assets/AdobeStock_213167172.png";
 
-/* I used the following knowledge/ressources to create this component:
-https://knowledge.udacity.com/questions/282070
---> how to switch between question and answer:
-https://knowledge.udacity.com/questions/298722
---> how to create and iterate over the cards:
-https://knowledge.udacity.com/questions/202174
-
-https://stackoverflow.com/questions/41604539/objects-are-not-valid-as-a-react-child
-https://linguinecode.com/post/how-to-avoid-multiple-re-renders-in-react-shouldcomponentupdate
-*/
-
 // < ================ Styling Start ================ >
 const QuizContainer = styled.View`
   flex: 1;

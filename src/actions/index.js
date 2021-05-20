@@ -49,10 +49,6 @@ export function deleteDeck(deck) {
   };
 }
 
-// async action creator to handle the initial data:
-/* I created this with the help from the following knowledge:
-https://knowledge.udacity.com/questions/280298
-*/
 export const handleInitialData = () => async (dispatch) => {
   const decks = await getDecks();
   return dispatch(showDecks(decks));

@@ -6,14 +6,6 @@ import {
   DELETE_DECK,
 } from "../actions";
 
-/*
-I created the following reducer function with the help of the following knowledge:
-https://knowledge.udacity.com/questions/367646
-https://knowledge.udacity.com/questions/301976
-https://knowledge.udacity.com/questions/281853
---> how to create the ADD_CARD case:
-https://knowledge.udacity.com/questions/565980
-*/
 export default function decks(state = {}, action) {
   switch (action.type) {
     case SHOW_DECKS:

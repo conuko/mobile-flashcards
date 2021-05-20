@@ -3,17 +3,6 @@ import * as Permissions from "expo-permissions";
 import { Alert, Linking } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-/* --> how to create and use expo notifications:
---> I followed the way we did this in the react native / local notifications course!
-https://knowledge.udacity.com/questions/374521
-
-Other resources I used:
-https://github.com/udacity/reactnd-UdaciFitness-complete/commit/63778456f674355e40044c673f4b966ebd446866
-https://docs.expo.io/versions/latest/sdk/notifications/?redirected
-https://docs.expo.io/versions/latest/sdk/notifications/#schedulenotificationasyncnotificationrequest-notificationrequestinput-promisestring
-https://knowledge.udacity.com/questions/374521
-*/
-
 const NOTIFICATION_KEY = "MobileFlashcards:notifications";
 
 export function setLocalNotification() {
@@ -53,7 +42,7 @@ export function setLocalNotification() {
                 title: "Remember to do a quiz today!",
               },
               trigger: {
-                seconds: 60,
+                hours: 24,
                 repeats: true,
               },
             });

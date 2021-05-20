@@ -7,14 +7,6 @@ import styled from "styled-components/native";
 import { CommonActions } from "@react-navigation/native";
 import { View } from "react-native";
 
-/*
-I created this component as we did in the react-native part with the AddEntry.js component
-and with the help of the following resources/knowledge:
-https://knowledge.udacity.com/questions/247551
-
---> I created the "toHome" method the same way we did it in the React Native course.
-*/
-
 // < ================ Styling Start ================ >
 const AddDeckContainer = styled(View)`
   flex: 1;

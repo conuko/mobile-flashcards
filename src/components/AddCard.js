@@ -7,12 +7,6 @@ import { CommonActions } from "@react-navigation/native";
 import styled from "styled-components/native";
 import cardPicture from "../assets/AdobeStock_213167172.png";
 
-/* I created this component with the help of the following knowledge and resources:
-https://knowledge.udacity.com/questions/565980
-https://stackoverflow.com/questions/54150783/react-hooks-usestate-with-object
-https://stackoverflow.com/questions/63710791/react-hooks-handle-multiple-inputs
-*/
-
 // < ================ Styling Start ================ >
 const AddCardContainer = styled.View`
   flex: 1;
