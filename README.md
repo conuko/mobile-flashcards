@@ -1,5 +1,6 @@
 # Mobile Flashcards
 
+<img align="right" src="src/assets/mobile-flashcards.gif" alt="FlashCards-demo" width="199" height="419">
 Mobile Flashcards is a mobile App for Android and iOS that allows users to study collections of flashcards.
 The app will allow users to create different categories of flashcards called "decks", add flashcards to those decks, then take quizzes on those decks.
 
