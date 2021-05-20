@@ -11,6 +11,7 @@ This app was built with React, React-Native, Redux, React-Redux, Expo, React-Nat
 
 - [Getting Started](#getting-started)
 - [Platform](#platform)
+- [Functionalities](#Functionalities)
 - [Important info about the DATA](#important-info-about-the-DATA)
 - [Create React App](#create-react-app)
 - [License](#license)
@@ -20,13 +21,23 @@ This app was built with React, React-Native, Redux, React-Redux, Expo, React-Nat
 Do the following to get started:
 
 - install project dependencies with `yarn install`.
-- start the development server with `start expo`
+- start the development server with `expo start`
 - use the expo app on your mobile device or
 - use an emulator (just follow the steps expo is displaying)
 
 ## Platform
 
 This app has only been tested on an Android phone and Android Emulator using the Expo app and Android Emulator.
+
+## Functionalities
+
+- Create a deck which can hold an unlimited number of cards.
+- Add a card to a specific deck.
+- Start a quiz on a specific deck.
+- Toggle a button to reveal the answer.
+- Select Correct/Incorrect for each question of the quiz.
+- Receive the score once the quiz is completed
+- Receive a daily notification to remind to study if users haven't already completed a quizz.
 
 ## Important info about the DATA
 
