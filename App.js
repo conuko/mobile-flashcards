@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { createStore } from "redux";
 import { Provider as StoreProvider } from "react-redux";
 import {
-  DarkTheme as PaperDarkTheme,
+  /* DarkTheme as PaperDarkTheme, */
   DefaultTheme as PaperDefaultTheme,
   Provider as PaperProvider,
 } from "react-native-paper";
 import {
   NavigationContainer,
   DefaultTheme as NavigationDefaultTheme,
-  DarkTheme as NavigationDarkTheme,
+  /* DarkTheme as NavigationDarkTheme, */
 } from "@react-navigation/native";
 import reducer from "./src/reducers";
 import middleware from "./src/middleware";
@@ -24,7 +24,7 @@ const CombinedDefaultTheme = {
 };
 
 // Dark Theme (can be applied optionally):
-const CombinedDarkTheme = { ...PaperDarkTheme, ...NavigationDarkTheme };
+/* const CombinedDarkTheme = { ...PaperDarkTheme, ...NavigationDarkTheme }; */
 
 export default function App() {
   useEffect(() => {
