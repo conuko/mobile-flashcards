@@ -6,7 +6,7 @@ The app will allow users to create different categories of flashcards called "de
 
 Mobile Flashcards is part of my React Nanodegree by Udacity.
 
-This app was built with React, React-Native, Redux, React-Redux, Expo, React-Native-Paper, Styled-Components and AsyncStorage to simulate API calls.
+This app was built with React-Native, Redux, React-Redux, Expo, React-Native-Paper, Styled-Components and AsyncStorage to simulate API calls.
 
 ## Summary
 
