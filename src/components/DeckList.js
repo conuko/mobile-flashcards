@@ -1,7 +1,7 @@
 // DATA needed:
 // getDecks
 import React, { Component } from "react";
-import { ScrollView, View, StyleSheet } from "react-native";
+import { ScrollView } from "react-native";
 import { connect } from "react-redux";
 import { getDecks } from "../utils/api";
 import { showDecks } from "../actions";
